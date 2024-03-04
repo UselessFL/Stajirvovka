@@ -1,4 +1,4 @@
-export default  class InputController{
+  class InputController{
     constructor(target,actionsToBind={}){
         this.target = target;
         this.actionsToBind=actionsToBind;
@@ -44,3 +44,21 @@ export default  class InputController{
     }
     
 }
+
+const moves ={
+    
+    'right':{
+        keys:[39,68]
+    },
+    'left':{
+        keys:[37,65]
+    
+}
+}
+let keyboard = new InputController(document, moves)
+keyboard.attach(document)
+/* moves.actions
+let keyboard = new InputController('body');
+keyboard.mapKey('ArrowUp', ()=>{
+    console.log('arrowUp')
+}) */
