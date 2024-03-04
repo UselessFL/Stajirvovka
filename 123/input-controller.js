@@ -9,7 +9,7 @@
         this.ACTION_DEACTIVATED = 'input-controller:action-deactivated' 
     }
     bindActions(actionsToBind){
-       
+       ''
     }
     enableAction(actionName){
         /* if(this.isActionActive(actionName)){
