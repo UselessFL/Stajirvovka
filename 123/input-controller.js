@@ -9,7 +9,14 @@
         this.ACTION_DEACTIVATED = 'input-controller:action-deactivated' 
     }
     bindActions(actionsToBind){
-       ''
+        for (let x = 0;x<actionsToBind.length ;x++){
+            let action = actionsToBind[x]
+            let keys=[]
+            this.enableAction(action)
+            for(let j; j<actionsToBind[x].length;x++){
+                keys.push(actionsToBind[x])
+            }
+        }
     }
     enableAction(actionName){
         /* if(this.isActionActive(actionName)){
@@ -23,7 +30,7 @@
         }
     }
     attach(target){
-        target.addEventListener('keydown',  /* (event)=> this.bindActions(event.key)  */ (event)=>this.enableAction(event.key))
+        target.addEventListener('keydown',  this.isActionActive(32))
     }
     detach(){
         
