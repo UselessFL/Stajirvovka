@@ -9,40 +9,29 @@
         this.ACTION_DEACTIVATED = 'input-controller:action-deactivated' 
     }
     bindActions(actionsToBind){
-        for (let x = 0;x<actionsToBind.length ;x++){
-            let action = actionsToBind[x]
-            let keys=[]
-            this.enableAction(action)
-            for(let j; j<actionsToBind[x].length;x++){
-                keys.push(actionsToBind[x])
-            }
-        }
+       //развернуть объект и соеденить события с кнопками
     }
     enableAction(actionName){
-        /* if(this.isActionActive(actionName)){
-            this.actionsToBind.actionName.keys = actionNames;
-        } */
-        console.log(actionName)
+       
     }
     disableAction(actionName){
-        if(!this.isActionActive(actionName)){
-
-        }
+        
     }
     attach(target){
-        target.addEventListener('keydown',  this.isActionActive(32))
+        target.addEventListener('keydown', ()=> this.enabled=true)
+        target.addEventListener('keyUp', ()=> this.enabled=false)
     }
     detach(){
         
     }
     isActionActive(action){
-        if (action){
+        if (a){
             return true
         }
         else{return false}
     }
     isKeyPressed(keyCode){
-        if(key == keyCode){
+        if(a){
             return true
         }
         else{
