@@ -9,13 +9,13 @@
         this.ACTION_DEACTIVATED = 'input-controller:action-deactivated' 
     }
     bindActions(actionsToBind){
-       /*  this.enableAction(actionsToBind) */
-
+       
     }
     enableAction(actionName){
-        if(this.isActionActive(actionName)){
-            /* this.actionsToBind.actionName.keys = actionNames; */
-        }
+        /* if(this.isActionActive(actionName)){
+            this.actionsToBind.actionName.keys = actionNames;
+        } */
+        console.log(actionName)
     }
     disableAction(actionName){
         if(!this.isActionActive(actionName)){
@@ -23,7 +23,7 @@
         }
     }
     attach(target){
-        target.addEventListener('keydown',  this.bindActions(this.actionsToBind) )
+        target.addEventListener('keydown',  /* (event)=> this.bindActions(event.key)  */ (event)=>this.enableAction(event.key))
     }
     detach(){
         
@@ -47,7 +47,7 @@
 
 const moves ={
     
-    'right':{
+    '1':{
         keys:[39,68]
     },
     'left':{
