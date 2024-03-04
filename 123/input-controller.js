@@ -1,31 +1,35 @@
   class InputController{
+    enabled = true;
+    focused = true;
+    ACTION_ACTIVATED = 'input-controller:action-activated'
+    ACTION_DEACTIVATED = 'input-controller:action-deactivated'
+
     constructor(target,actionsToBind={}){
         this.target = target;
-        this.actionsToBind=actionsToBind;
-        this.actions={};
-        this.enabled = true;
-        this.focused = true;
-        this.ACTION_ACTIVATED = 'input-controller:action-activated'
-        this.ACTION_DEACTIVATED = 'input-controller:action-deactivated' 
+        this.actionsToBind=actionsToBind; 
     }
     bindActions(actionsToBind){
        //развернуть объект и соеденить события с кнопками
     }
     enableAction(actionName){
-       
+        /* this.isActionActive(actionName.keyCode)?'':'' */
+        this.enabled = true;
+     console.log(actionName.keyCode)
     }
     disableAction(actionName){
-        
+        this.enabled = false;
+        this.isActionActive(actionName)? '': console.log(this.ACTION_DEACTIVATED,)
     }
     attach(target){
-        target.addEventListener('keydown', ()=> this.enabled=true)
-        target.addEventListener('keyUp', ()=> this.enabled=false)
+        target.addEventListener('keydown', this.enableAction)
+      /*   target.addEventListener('keyup', ()=> this.enabled=false) */
     }
     detach(){
-        
+        removeEventListener('keydown', this.disableAction)
     }
     isActionActive(action){
-        if (a){
+        if (this.enabled==true){
+            console.log(action)
             return true
         }
         else{return false}
@@ -43,7 +47,7 @@
 
 const moves ={
     
-    '1':{
+    'right':{
         keys:[39,68]
     },
     'left':{
@@ -53,6 +57,7 @@ const moves ={
 }
 let keyboard = new InputController(document, moves)
 keyboard.attach(document)
+console.log(keyboard.ACTION_ACTIVATED)
 /* moves.actions
 let keyboard = new InputController('body');
 keyboard.mapKey('ArrowUp', ()=>{
