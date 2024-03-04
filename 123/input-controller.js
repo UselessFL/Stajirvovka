@@ -1,32 +1,29 @@
-class InputController{
-    //публичные переменные 
-   
+export default  class InputController{
     constructor(target,actionsToBind={}){
         this.target = target;
         this.actionsToBind=actionsToBind;
         this.actions={};
         this.enabled = true;
         this.focused = true;
-         this.ACTION_ACTIVATED = 'input-controller:action-activated'
-        this.ACTION_DEACTIVATED = 'input-controller:action-deactivated'
-        /* this.bindActions (actionsToBind); */
-       
+        this.ACTION_ACTIVATED = 'input-controller:action-activated'
+        this.ACTION_DEACTIVATED = 'input-controller:action-deactivated' 
     }
-
-
     bindActions(actionsToBind){
-        this.enableAction(actionsToBind.actions[actionName])
+       /*  this.enableAction(actionsToBind) */
+
     }
     enableAction(actionName){
         if(this.isActionActive(actionName)){
-            
+            /* this.actionsToBind.actionName.keys = actionNames; */
         }
     }
     disableAction(actionName){
+        if(!this.isActionActive(actionName)){
 
+        }
     }
     attach(target){
-        target.addEventListener('keydown', this.bindActions(this.actionsToBind))
+        target.addEventListener('keydown',  this.bindActions(this.actionsToBind) )
     }
     detach(){
         
@@ -47,18 +44,3 @@ class InputController{
     }
     
 }
-const moves ={
-    
-    'right':{
-        keys:[39,68]
-    },
-    'left':{
-        keys:[37,65]
-    }
-    
-}
-moves.actions
-let keyboard = new InputController('body');
-keyboard.mapKey('ArrowUp', ()=>{
-    console.log('arrowUp')
-})
